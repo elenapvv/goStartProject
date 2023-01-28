@@ -1,0 +1,4 @@
+DbUsername: "elena"
+DbPassword: "pass"
+DbPort: "3301"
+DbHost: "tarantool"

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  tarantool:
+    image: tarantool/tarantool:2.10.4
+    container_name: mytarantool
+    command: tarantool /usr/local/share/tarantool/app.init.lua
+    env_file:
+      - ./deploy/tarantool/.env
+    volumes:
+      - ./deploy/tarantool/app.lua:/usr/local/share/tarantool/app.init.lua
+      - ./ttdata/:/var/lib/tarantool/
+    ports:
+      - "3301:3301"
+
+  app:
+    build: src/app
+    container_name: app
+    command: "app"
+    ports:
+      - "9055:8080"
+    depends_on:
+      - tarantool
