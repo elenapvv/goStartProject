@@ -24,11 +24,4 @@ func InitDB(env string) {
 	} else {
 		log.InfoLogger.Println("Connected to DB")
 	}
-
-	//defer func(Conn *tarantool.Connection) {
-	//	err := Conn.Close()
-	//	if err != nil {
-	//		log.ErrorLogger.Println("Не удалось закрыть соединение с БД")
-	//	}
-	//}(Conn)
 }

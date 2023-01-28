@@ -63,7 +63,7 @@ func saveOrg(c *gin.Context) {
 
 func getOrgList(c *gin.Context) {
 	spaceName := "organisation"
-	indexName := "primary" // "scanner"
+	indexName := "primary"
 	idFn := utils.Conn.Schema.Spaces[spaceName].Fields["id"].Id
 
 	var tuplesPerRequest uint32 = 2
